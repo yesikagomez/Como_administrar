@@ -1,12 +1,14 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import listacita from './components/ListaCita';
+import Diagnostico from './components/Diagnostico';
+import Registro from './components/FormularioRegistro';
 
 const Routes = () => {
     return(
-        <switch>
-            <Route path='/' component = {listacita} />
-        </switch>
+        <Switch>
+            <Route exact path='/Diagnostico' component = {Diagnostico} />
+            <Route exact path='/' component = {Registro} />
+        </Switch>
     ) 
 }
 

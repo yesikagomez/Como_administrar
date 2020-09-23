@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Routes from './Routes'
+import Routes from './Routes';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import './App.css'
-import 'bulma/css/bulma.min.css';
+import './App.css';
 
 class App extends React.Component {
   render() {
