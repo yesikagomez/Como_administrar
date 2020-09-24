@@ -1,5 +1,6 @@
-import React from 'react'
-import './../App.css'
+import React from 'react';
+import { Button } from 'react-bootstrap';
+import './../App.css';
 
 function Diagnostico () {
     return(
@@ -70,6 +71,9 @@ function Diagnostico () {
                 </div>
                 <input type="text" class="form-control" aria-label="Text input with checkbox" readonly="readonly" disabled="disabled"/>
             </div>
+            <Button variant="primary" type="submit">
+                    Submit
+                </Button>
         </div>
     );
 }
