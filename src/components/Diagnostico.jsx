@@ -1,10 +1,39 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Button } from 'react-bootstrap';
 import './../App.css';
+import Cookies from 'universal-cookie';
+import Barinfo from './Barinfo';
 
-function Diagnostico () {
+const cookies = new Cookies();
+
+class Diagnostico extends Component {
+    cerrarSesion=()=>{
+        cookies.remove('id', {path: "/"});
+        cookies.remove('nombrecliente', {path: "/"});
+        cookies.remove('nombreempresa', {path: "/"});
+        cookies.remove('numempleados', {path: "/"});
+        cookies.remove('annoslaborando', {path: "/"});
+        cookies.remove('correo', {path: "/"});
+        window.location.href='./';
+    }
+
+   /* componentDidMount() {
+        if(!cookies.get('username')){
+            window.location.href="./";
+        }
+    }*/
+    render() {
+        console.log('id: '+ cookies.get('id'));
+        console.log('nombrecliente: '+ cookies.get('nombrecliente'));
+        console.log('nombreempresa: '+ cookies.get('nombreempresa'));
+        console.log('numempleados: '+ cookies.get('numempleados'));
+        console.log('annoslaborando: '+ cookies.get('annoslaborando'));
+        console.log('correo: '+cookies.get('correo'));
+        alert(cookies.get('nombrecliente'));
     return(
         <div>
+            <Barinfo nombrecliente={cookies.get('nombrecliente')}/>
+            <a variant="primary" type="submit" onClick={()=>this.cerrarSesion()}>Cerrar Sesión</a>
             <h2>Test Diagnóstico</h2>
             <h4>Seleccione uno o varios problemas que considere que tiene.</h4>
             <div class="input-group mb-3">
@@ -72,10 +101,11 @@ function Diagnostico () {
                 <input type="text" class="form-control" aria-label="Text input with checkbox" readonly="readonly" disabled="disabled" value="Falta de conocimiento en cómo manejar los procesos"/>
             </div>
             <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                    Aceptar
+            </Button>
         </div>
     );
+}
 }
 
 export default Diagnostico;

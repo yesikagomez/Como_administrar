@@ -3,6 +3,7 @@ import Routes from './Routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import './App.css';
+import Inicio from './components/InicioSesion';
 
 class App extends React.Component {
   render() {
