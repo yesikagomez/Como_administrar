@@ -24,7 +24,8 @@ class Inicio extends Component {
         });
     }
 
-    /*iniciarSesion=async()=>{
+    iniciarSesion=async()=>{
+        alert("hola");
         await fetch.get("https://api-poskdjxg1.vercel.app/cliente", {params: {correo: this.state.form.correo,contrasenna: this.state.form.contrasenna}})
         .then(response=>{
             var dato= response.data;
@@ -50,15 +51,14 @@ class Inicio extends Component {
             console.log(error);
         })
         
-    }*/
+    }
 
-    dato () {
-    /*=async()=>{
+     /*dato =async()=>{
         let respuesta = await fetch.get('https://api-poskdjxg1.vercel.app/cliente', {params: {correo: this.state.form.correo,contrasenna: this.state.form.contrasenna}})
         .then(response=>{
         let cliente = respuesta.json()
         alert("respuesta");
-        /*if (respuesta.status === 201) {
+        if (respuesta.status === 201) {
             window.location.href="./Diagnostico";
         }else{
             alert("error");
@@ -68,8 +68,9 @@ class Inicio extends Component {
             console.log(error);
             alert("hola");
         })*/
-        window.location.href="./Diagnostico";
-    }
+        //window.location.href="./Diagnostico";
+        
+    //}
 
     render(){
     return(
@@ -89,7 +90,7 @@ class Inicio extends Component {
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Recuperar Contraseña" />
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={()=>this.dato()}>
+                <Button variant="primary" type="submit" >
                     Aceptar
                 </Button>
             </Form>

@@ -5,6 +5,7 @@ import Registro from './components/FormularioRegistro';
 import Home from './components/Home';
 import Inicio from './components/InicioSesion';
 import Cita from './components/Citas';
+import Calendario from './components/Calendario';
 
 const Routes = () => {
     return(
@@ -14,6 +15,7 @@ const Routes = () => {
                 <Route exact path='/Registro' component = {Registro} />
                 <Route exact path='/IniciarSesion' component = {Inicio} />
                 <Route exact path='/Diagnostico' component = {Diagnostico} />
+                <Route exact path='/Agendar' component = {Calendario} />
                 <Route exact path='/Citas' component = {Cita} />
             </div>        
         </Switch>

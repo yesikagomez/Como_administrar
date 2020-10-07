@@ -11,7 +11,6 @@ const cookie = new Cookies();
 const Registro = () => {
         Yup.addMethod(Yup.mixed, 'methodName', function (anyArgsYouNeed) {
             const { message } = anyArgsYouNeed;
-            console.log("entro en la validación")
             return this.test('test-name', message, function (value) {
                 const { path, createError } = this;
                 const { some, more, args } = anyArgsYouNeed;
@@ -22,8 +21,8 @@ const Registro = () => {
         const schema = Yup.object().shape({
             nombrecliente: Yup.string().required("Valor requerido"),
             nombreempresa: Yup.string().required("Valor requerido"),
-            numempleados: Yup.number().required("El número de empleados es requerido"),
-            annoslaborando: Yup.number().required("El campo es requerido"),
+            numempleados: Yup.number().min(1, "El valor debe ser mayor").required("El número de empleados es requerido"),
+            annoslaborando: Yup.number().min(1, "El valor debe ser mayor").required("El campo es requerido"),
             correo: Yup.string().email("Ingrese un correo valido").required("El correo es un valor requerido"),
             contrasenna: Yup.string().required("Campo requerido").min(5, "Minimo 5 caracteres")
         })
@@ -39,12 +38,12 @@ const Registro = () => {
                     let respuesta = await fetch ('https://api-poskdjxg1.vercel.app/cliente', { method: 'POST', body: JSON.stringify(values), headers: { 'Content-Type': 'application/json' } })
                     //let cliente = await respuesta.json()
                     if (respuesta.status === 201) {
-                        cookie.set('id', respuesta.id, {path: "/"});
-                        cookie.set('nombrecliente', respuesta.nombrecliente, {path:'/'});
-                        cookie.set('nombreempresa', respuesta.nombreempresa, {path: "/"});
-                        cookie.set('numempleados', respuesta.numempleados, {path:'/'});
-                        cookie.set('annoslaborando', respuesta.annoslaborando, {path: "/"});
-                        cookie.set('correo', respuesta.correo, {path:'/'});
+                        cookie.set('nombrecliente', values.nombrecliente, {path:'/'});
+                        cookie.set('nombreempresa', values.nombreempresanombreempresa, {path: "/"});
+                        cookie.set('numempleados', values.numempleados, {path:'/'});
+                        cookie.set('annoslaborando', values.annoslaborando, {path: "/"});
+                        cookie.set('correo', values.correo, {path:'/'});
+                        //ookie.set('problema', " ",{path:'/'});
                         window.location.href="./Diagnostico";
                     }
                 }else{
