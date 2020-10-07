@@ -39,11 +39,10 @@ const Registro = () => {
                     //let cliente = await respuesta.json()
                     if (respuesta.status === 201) {
                         cookie.set('nombrecliente', values.nombrecliente, {path:'/'});
-                        cookie.set('nombreempresa', values.nombreempresanombreempresa, {path: "/"});
+                        cookie.set('nombreempresa', values.nombreempresa, {path: "/"});
                         cookie.set('numempleados', values.numempleados, {path:'/'});
                         cookie.set('annoslaborando', values.annoslaborando, {path: "/"});
                         cookie.set('correo', values.correo, {path:'/'});
-                        //ookie.set('problema', " ",{path:'/'});
                         window.location.href="./Diagnostico";
                     }
                 }else{
