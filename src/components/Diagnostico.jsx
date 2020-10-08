@@ -95,7 +95,7 @@ const Diagnostico = () =>{
         <div> 
             <Barinfo nombrecliente={cookies.get('nombrecliente')}/>
             <a variant="primary" type="submit" onClick={()=>cerrarSesion()}>Cerrar Sesión</a>
-            <h2>Test Diagnóstico</h2>
+            <h2 className="m-3" >Test Diagnóstico</h2>
             <h4>Seleccione uno o varios problemas que considere que tiene.</h4>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">

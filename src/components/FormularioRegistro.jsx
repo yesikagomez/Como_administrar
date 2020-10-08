@@ -72,7 +72,7 @@ const Registro = () => {
                 } = props;
                 return <Form noValidate onSubmit={handleSubmit}>      
             
-                <h2>Registrese</h2>
+                <h2 className="m-3" >Registrese</h2>
                     <Form.Group controlId="nombrecliente">
                         <Form.Label>Nombre Completo</Form.Label>
                         <Form.Control 

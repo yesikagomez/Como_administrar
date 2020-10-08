@@ -24,15 +24,19 @@ class Inicio extends Component {
         });
     }
 
+    componentDidMount(){
+        this.iniciarSesion();
+    }
+
     iniciarSesion=async()=>{
         alert("hola");
-        await fetch.get("https://api-poskdjxg1.vercel.app/cliente", {params: {correo: this.state.form.correo,contrasenna: this.state.form.contrasenna}})
-        .then(response=>{
+        //, {params: {correo: this.state.form.correo,contrasenna: this.state.form.contrasenna}}
+        await axios.get(url).then(response=>{
             var dato= response.data;
-            alert(dato);
-            return dato;
+            console.data(dato);
+            //return dato;
         })
-        .then(response=>{
+        /*.then(response=>{
             if(response.lenght > 0){
                 var respuesta = response[0];
                 cookie.set('id', respuesta.id, {path: "/"});
@@ -46,7 +50,7 @@ class Inicio extends Component {
             }else{
                 alert("El usuario o la contraseña no son correctos");
             }
-        })
+        })*/
         .catch(error=>{
             console.log(error);
         })
@@ -77,7 +81,7 @@ class Inicio extends Component {
         <div>
             <Navegacion/>
             <Form>
-                <h3>Inicio de Sesión</h3>
+                <h3 className="m-3" >Inicio de Sesión</h3>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Ingrese Correo</Form.Label>
                     <Form.Control type="email" placeholder="Ingrese Correo" name="correo" onChange={this.handlechange}/>

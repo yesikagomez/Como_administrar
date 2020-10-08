@@ -7,6 +7,9 @@ import es from 'date-fns/locale/es';
 import Cookies from 'universal-cookie';
 import Barinfo from './Barinfo';
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from 'axios';
+
+const url="https://api-poskdjxg1.vercel.app/citas";
 
 const cookies = new Cookies();
 let hora,minutos,horas,dia;
@@ -61,6 +64,27 @@ class Calendario extends Component {
            cookies.set('hora', horas, {path: "/"});
        }
     }
+
+    seleccionarcita=(citas)=>{
+        this.setState({
+          cita: {
+          //  id: citas.id,
+            nombrecliente: citas.nombrecliente,
+            nombreempresa: citas.nombreempresa,
+            fecha: citas.fecha,
+            hora: citas.hora
+          }
+        })
+      }
+
+      peticionDelete=()=>{
+        axios.delete(url+"5").then(response=>{
+        })
+      }
+
+    eliminarCita = async () =>{
+        
+    } 
     render() {
         //const {form}=this.props
         return(
@@ -108,7 +132,7 @@ class Calendario extends Component {
                     <td>{cookies.get('fecha')}</td>
                     <td>{cookies.get('hora')}</td>
                     <td className="text-center">
-                        <button className="mr-2 btn btn-dark"><i className="fas fa-trash-alt m-2 "></i></button>
+                        <button className="mr-2 btn btn-dark" onClick={()=>this.peticionDelete()}><i className="fas fa-trash-alt m-2 "></i></button>
                         <button className="btn btn-dark"><i className="fas fa-edit m-2 ml-2"></i></button>
                     </td>
                     </tr>
