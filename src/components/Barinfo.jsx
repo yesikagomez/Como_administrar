@@ -4,7 +4,7 @@ import {Nav, Navbar} from 'react-bootstrap';
 function BarInfo ({nombrecliente}){
         return (
             <Navbar bg="dark" variant="dark" sticky="top" >  
-                <Navbar.Brand href="/">Administrando</Navbar.Brand>
+                <Navbar.Brand href="/">RAS</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>

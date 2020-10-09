@@ -40,39 +40,8 @@ const Diagnostico = () =>{
     }
     
     function Validar(){
-        for(let i=0; i<problemas.length; i++){
-            switch (problemas.charAt(i)){
-                case "1":
-                   // cookies.set('problema', document.getElementById('1'), {path:'/'});
-                   // alert(cookies.get('nombrecliente'));
-                break;
-                case "2":
-                // cookie.set('problema', values.nombrecliente, {path:'/'});
-                break;
-                case "3":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
-                break;
-                case "4":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
-                break;
-                case "5":
-                   //cookies.set('problema', document.getElementById('5'), {path:'/'});
-                break;
-                case "6":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
-                break;
-                case "7":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
-                break;
-                case "8":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
-                break;
-                default:
-                alert('Seleccione algun problema');
-                break;
-               // alert(cookies.get('problemas'));
-            }
-        }
+        cookies.set('problemas', problemas, {path:'/'});
+        window.location.href="./Recomendaciones";
     }
 
     function  cerrarSesion(){

@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Inicio from './components/InicioSesion';
 import Cita from './components/Citas';
 import Calendario from './components/Calendario';
+import Recomendaciones from './components/Recomendaciones';
 
 const Routes = () => {
     return(
@@ -15,6 +16,7 @@ const Routes = () => {
                 <Route exact path='/Registro' component = {Registro} />
                 <Route exact path='/IniciarSesion' component = {Inicio} />
                 <Route exact path='/Diagnostico' component = {Diagnostico} />
+                <Route exact path='/Recomendaciones' component = {Recomendaciones} />
                 <Route exact path='/Agendar' component = {Calendario} />
                 <Route exact path='/Citas' component = {Cita} />
             </div>        

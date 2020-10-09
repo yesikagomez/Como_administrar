@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#imagen{
+  width: 100%;
+}
+
+#verificacion{
+  width: 55%;
+}
+
+#diagnostico{
+  width: 40%;
+}
+
+.titulo{
+  font-size: 50px;
+  font-family: 'Shadows Into Light', cursive;
+}

@@ -1,40 +1,45 @@
 import React from 'react';
 import Navegacion from './BarNav';
+import imagen from './../Imagenes/Verificacion.jpg';
+import {Image} from 'react-bootstrap';
+import './../index.css';
 
 function Home(){
     return (
         <div>
             <Navegacion/>
-            <h1 className="m-3" >Bienvenidos</h1>
-            <div className="alert alert-success">
-              <strong>
-                  Las copias de seguridad son una acción de mantenimiento imprescindible a realizar por cualquier profesional o usuario para salvaguardar sus datos. 
-                  Un equipo informático puede fallar en cualquier momento. 
-              </strong>
+            <h1 className="mt-1" >Bienvenidos</h1>
+            <div className="mt-0"> 
+              <div className="alert text-info float-left">
+                <strong>
+                  Es importante contar con copias de seguridad.
+                </strong>
+              </div>
+              <div className="alert text-info float-left">
+                <strong>
+                  Es indispensable tener un sistema contable.
+                </strong>
+              </div>
+              <div className="alert text-info float-left">
+                  <strong className="">
+                      Aprenda a delegar.
+                  </strong>
+              </div>
+              <div className="text-center">
+                 <Image src={imagen} rounded id="imagen" id="verificacion"/>
+              </div>
+              <div className="alert text-info float-left">
+                <strong className="text-right">
+                  Recuerde la importancia de fidelizar a los clientes.
+                </strong>
+              </div>
+              <div className="alert text-info float-right">
+                <strong className="text-right">
+                  una buena opción es ampliar la cobertura geográfica.
+                </strong>
+              </div>
             </div>
-            <div className="alert alert-success">
-              <strong>
-                Un sistema contable se convierte en el mejor aliado del empresario porque a través de sus reportes financieros y operativos le permite conocer en todo momento sus resultados y la situación financiera en un periodo dado, así podrá controlar bien sus cuentas por cobrar, las fechas de vencimiento de sus facturas a clientes y sus compromisos de pago.     
-              </strong>
-            </div>
-            <div className="alert alert-success">
-              <strong>
-                    Aprende a delegar las tareas operativas que consumen mucho tiempo y le agregan poco valor al negocio. Por eso es importante que identifiques a tus empleados que tienen la capacidad de manejar esas responsabilidades diarias, ya sea operativas o administrativas. 
-                    Ellos apreciarán la confianza y la oportunidad de crecer personal y profesionalmente, y tú tendrás libertad para concentrarte en cosas más importantes para el negocio.
-              </strong>
-            </div>
-            <div className="alert alert-success">
-              <strong>
-                    Lleva una agenda: Esto te permitirá organizarte mejor y tener claridad sobre el uso de tu tiempo, el cual es muy valioso.  
-                    Una agenda organizada también te generará clientes más satisfechos porque siempre estarás organizado para atenderlos puntualmente.
-              </strong>
-            </div>
-            <div className="alert alert-success">
-              <strong>
-                    Ampliar la cobertura geográfica del negocio con las mismas líneas de productos o servicios (Más puntos de venta o sucursales)
-                    Ampliar las líneas de negocio, manteniendo la cobertura geográfica (Más productos o servicios, mismo local).    
-              </strong>
-            </div>         
+             <footer className="mb-2">Imagen de <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1040248">Pixabay</a></footer>
         </div>
     );
 }
