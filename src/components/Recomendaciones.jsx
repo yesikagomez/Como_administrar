@@ -46,10 +46,22 @@ class Recomendaciones extends Component {
          Agendar(){
             window.location.href='./Agendar';
         }
+
+        cerrarSesion(){
+            cookies.remove('id', {path: "/"});
+            cookies.remove('nombrecliente', {path: "/"});
+            cookies.remove('nombreempresa', {path: "/"});
+            cookies.remove('numempleados', {path: "/"});
+            cookies.remove('annoslaborando', {path: "/"});
+            cookies.remove('correo', {path: "/"});
+            cookies.remove('problemas', {path: "/"});
+            window.location.href='./';
+        }
         render(){
         return (
             <div>
                 <Barinfo nombrecliente={cookies.get('nombrecliente')}/>
+                <a variant="primary" type="submit" onClick={()=>this.cerrarSesion()}>Cerrar Sesión</a>
                 <div className="text-center"><h3>Recomendaciones</h3></div>
                     <p className="text-center">Estas son algunas recomendaciones para los problemas que seleccionó pero para una mayor y mejor asesoria <a variant="primary" className="display-4 text-info " type="submit" onClick={()=>this.Agendar()}>Agenda una cita</a></p>
                     <div className="text-center">
@@ -98,7 +110,7 @@ class Recomendaciones extends Component {
                         <strong>
                             <ul className="text-dark float-left">
                                 <li >Conoce tu público objetivo.</li>
-                                <li >Has un estudio de mercado.</li>
+                                <li >Haz un estudio de mercado.</li>
                                 <li >Conoce tu competencia.</li>
                                 <li >Promueve tu empresa a través de redes sociales.</li> 
                             </ul>
@@ -112,7 +124,7 @@ class Recomendaciones extends Component {
                             <ul className="text-dark float-left">
                                 <li >Conoce tu Empresa a fondo.</li>
                                 <li >Potencia el Talento de tu Equipo de Colaboradores.</li>
-                                <li >Define cuáles Procesos urgen ser Optimizados.</li>
+                                <li >Define cuáles Procesos deben ser Optimizados.</li>
                                 <li >Mejora la Comunicación.</li> 
                                 <li >Fortalece tu Área de Finanzas.</li>
                             </ul>

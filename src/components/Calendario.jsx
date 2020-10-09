@@ -25,15 +25,25 @@ class Calendario extends Component {
         this.setState({fecha: fecha});
       }
 
+    cerrarSesion(){
+        cookies.remove('id', {path: "/"});
+        cookies.remove('nombrecliente', {path: "/"});
+        cookies.remove('nombreempresa', {path: "/"});
+        cookies.remove('numempleados', {path: "/"});
+        cookies.remove('annoslaborando', {path: "/"});
+        cookies.remove('correo', {path: "/"});
+        cookies.remove('fecha', {path:'/'});
+        cookies.remove('hora', {path: "/"});
+        cookies.remove('problemas', {path: "/"});
+        window.location.href='./';
+    }
      mostrarFecha = async (fecha)=>{ 
         document.getElementById('guardar').disabled = true; 
         document.getElementById('calendario').disabled = true; 
        const options ={weekday: 'long' , year: 'numeric', month: 'long', day:'numeric'};
        dia = (fecha.toLocaleDateString('es-ES', options));
-       //alert(fecha.toLocaleDateString());
         hora = fecha.getHours() ;
         minutos = fecha.getMinutes();
-        alert (hora,minutos);
        if(hora > 12){
            hora = hora -12 ;
            if(hora<10){
@@ -46,7 +56,6 @@ class Calendario extends Component {
        }else {
             horas = hora + " : " + minutos + " AM"
        }
-       alert(dia);
        
        let cita = {
             nombrecliente: cookies.get('nombrecliente'),
@@ -55,20 +64,18 @@ class Calendario extends Component {
             hora: horas,
         };
        let respuesta = await fetch ('https://api-poskdjxg1.vercel.app/citas', { method: 'POST', body: JSON.stringify(cita), headers: { 'Content-Type': 'application/json' }})
-       alert(respuesta.status);
        if (respuesta.status === 201) {
-           alert("agregado");
            cookies.set('nombrecliente', cookies.get('nombrecliente'), {path:'/'});
            cookies.set('nombreempresa', cookies.get('nombreempresa'), {path: "/"});
            cookies.set('fecha', dia, {path:'/'});
            cookies.set('hora', horas, {path: "/"});
+           alert("Cita asignada correctamente");
        }
     }
 
     seleccionarcita=(citas)=>{
         this.setState({
           cita: {
-          //  id: citas.id,
             nombrecliente: citas.nombrecliente,
             nombreempresa: citas.nombreempresa,
             fecha: citas.fecha,
@@ -86,10 +93,10 @@ class Calendario extends Component {
         
     } 
     render() {
-        //const {form}=this.props
         return(
             <div className="container">
                 <Barinfo nombrecliente={cookies.get('nombrecliente')}/>
+                <a variant="primary" type="submit" onClick={()=>this.cerrarSesion()}>Cerrar Sesión</a>
                 <div className="center">
                     <DatePicker 
                         id="calendario"

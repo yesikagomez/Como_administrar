@@ -9,7 +9,7 @@ class Navegacion extends Component {
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
                         <Nav.Link href="/Registro">Registrarse</Nav.Link>
-                        <Nav.Link href="/IniciarSesion">Inicar Sección</Nav.Link>
+                        <Nav.Link href="/IniciarSesion">Inicar Sesión</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
