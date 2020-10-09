@@ -1,62 +1,61 @@
-import React, {Component,useState} from 'react';
+import React, {Component} from 'react';
 import Barinfo from './Barinfo';
 import Cookies from 'universal-cookie';
 import {Image,Col} from 'react-bootstrap';
-import imagen from './../Imagenes/MarketingDigital.jpg';
 import diagnostico from './../Imagenes/Diagnostico.png';
 import './../index.css'
 
 const cookies = new Cookies();
+let problemas= (cookies.get('problemas'));
 
-const Recomendaciones = () =>{
+class Recomendaciones extends Component {
+
+   componentDidMount(){
+       this.mostrar();
+   }
     
-    //alert(cookies.get('problemas'));
-    const [show, setShow] = useState(true);
-    const [problemas, setProblemas] = useState(cookies.get('problemas'));
-    
+     mostrar(){
         for(let i=0; i<problemas.length; i++){
             switch (problemas.charAt(i)){
                 case "1":
-                    
-                //document.getElementById('case1').style ='display:active'; 
+                    document.getElementById("case1").style.display = "block";
                 break;
                 case "2":
-                // cookie.set('problema', values.nombrecliente, {path:'/'});
+                    document.getElementById('case2').style.display = "block";
                 break;
                 case "3":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
+                    document.getElementById('case4').style.display = "block";
                 break;
                 case "4":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
-                break;
+                    document.getElementById('case3').style.display = "block";
                 case "5":
-                   //cookies.set('problema', document.getElementById('5'), {path:'/'});
+                    document.getElementById('case3').style.display = "block";
                 break;
                 case "6":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
+                    document.getElementById('case4').style.display = "block";
                 break;
                 case "7":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
+                    document.getElementById('case6').style.display = "block";
                 break;
                 case "8":
-                    //cookie.set('problema', values.nombrecliente, {path:'/'});
+                    document.getElementById('case5').style.display = "block";
                 break;
             }
-        }
+        }}
     
-        function Agendar(){
+         Agendar(){
             window.location.href='./Agendar';
         }
+        render(){
         return (
             <div>
                 <Barinfo nombrecliente={cookies.get('nombrecliente')}/>
-                <a variant="primary" type="submit" onClick={()=>Agendar()}>Agenda una cita</a>
                 <div className="text-center"><h3>Recomendaciones</h3></div>
-                    <p className="text-center">Estas son algunas recomendaciones para los problemas que seleccionó pero para una mayor y mejor asesoria <a variant="primary" className="display-4 text-info " type="submit" onClick={()=>Agendar()}>Agenda una cita</a></p>
+                    <p className="text-center">Estas son algunas recomendaciones para los problemas que seleccionó pero para una mayor y mejor asesoria <a variant="primary" className="display-4 text-info " type="submit" onClick={()=>this.Agendar()}>Agenda una cita</a></p>
                     <div className="text-center">
                         <Image src={diagnostico} rounded id="diagnostico"/>
                     </div>
-                <div id="case1">
+                <div id="case1" className="ver" >
                     <h4  className="alert text-info titulo">Documentos Perdidos</h4>
                     <div className="alert text-dark float-left">
                         <strong>
@@ -67,7 +66,7 @@ const Recomendaciones = () =>{
                         </strong>
                     </div>                
                 </div>
-                <div id="case2">
+                <div id="case2"  className="ver">
                 <h4  className="alert text-info titulo">Reconocimiento</h4>
                     <div className="alert text-dark float-left">
                         <strong>
@@ -80,7 +79,7 @@ const Recomendaciones = () =>{
                         </strong>
                     </div> 
                 </div>
-                <div id="case3">
+                <div id="case3"  className="ver">
                 <h4  className="alert text-info titulo">Página Web</h4>
                     <div className="alert text-dark float-left">
                         <strong>
@@ -93,20 +92,34 @@ const Recomendaciones = () =>{
                         </strong>
                     </div> 
                 </div>
-                <div id="case4" >
+                <div id="case4"  className="ver" >
                     <h4 className="alert text-info titulo ">Marketing Digital</h4>
                     <div className="alert text-dark float-left">
                         <strong>
                             <ul className="text-dark float-left">
-                                <li >Conocé tu público objetivo.</li>
+                                <li >Conoce tu público objetivo.</li>
                                 <li >Has un estudio de mercado.</li>
-                                <li >Conocé tu competencia.</li>
+                                <li >Conoce tu competencia.</li>
                                 <li >Promueve tu empresa a través de redes sociales.</li> 
                             </ul>
                         </strong>
                     </div>                
                 </div>
-                <div id="case5">
+                <div id="case5"  className="ver" >
+                    <h4 className="alert text-info titulo ">Optimizar Procesos</h4>
+                    <div className="alert text-dark float-left">
+                        <strong>
+                            <ul className="text-dark float-left">
+                                <li >Conoce tu Empresa a fondo.</li>
+                                <li >Potencia el Talento de tu Equipo de Colaboradores.</li>
+                                <li >Define cuáles Procesos urgen ser Optimizados.</li>
+                                <li >Mejora la Comunicación.</li> 
+                                <li >Fortalece tu Área de Finanzas.</li>
+                            </ul>
+                        </strong>
+                    </div>                
+                </div>
+                <div id="case6"  className="ver" >
                 <h4  className=" text-info titulo">Software</h4>
                     <div className=" text-dark float-left">
                         <strong>
@@ -122,6 +135,7 @@ const Recomendaciones = () =>{
                 </div>
             </div>
         )
+    }
     
 }
 

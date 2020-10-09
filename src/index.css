@@ -24,6 +24,10 @@ code {
   width: 40%;
 }
 
+.ver{
+  display: none;
+}
+
 .titulo{
   font-size: 50px;
   font-family: 'Shadows Into Light', cursive;
